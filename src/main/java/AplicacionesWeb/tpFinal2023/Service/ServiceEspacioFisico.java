@@ -21,7 +21,7 @@ public class ServiceEspacioFisico implements IServicioEspacioFisico {
 
     @Override
     public EspacioFisico saveEspacioFisico(EspacioFisico espacioFisico) {
-        return espacioFisicoRepository.save(new EspacioFisico(espacioFisico.getNombre(),espacioFisico.getRecursos(),espacioFisico.getCapacidad()));
+        return espacioFisicoRepository.save(new EspacioFisico(espacioFisico.getNombre(),espacioFisico.getRecursos(),espacioFisico.getDescripcion(),espacioFisico.getCapacidad()));
     }
 
     @Override
