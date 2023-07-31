@@ -39,6 +39,8 @@ public class ServiceEspacioFisico implements IServicioEspacioFisico {
     public EspacioFisico updateEspacioFisico(Long id, EspacioFisico e) {
         EspacioFisico espacioFisico = getEspacioFisico(id);
         espacioFisico.setNombre(e.getNombre());
+        espacioFisico.setDescripcion(e.getDescripcion());
+        espacioFisico.setCapacidad(e.getCapacidad());
         espacioFisico.setRecursos(e.getRecursos());
 
         return espacioFisicoRepository.save(espacioFisico);
