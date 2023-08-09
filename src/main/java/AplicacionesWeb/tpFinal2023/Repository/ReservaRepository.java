@@ -6,10 +6,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 @Repository
 public interface ReservaRepository extends JpaRepository<Reserva, Long> {
-    Page<Reserva> findByFechaInicioBetween(LocalDateTime fechaInicio, LocalDateTime fechaFin, Pageable pageable);
+    Page<Reserva> findByFechaInicioBetween(Date fechaInicio, Date fechaFin, Pageable pageable);
 }
 

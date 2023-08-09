@@ -1,13 +1,15 @@
 package AplicacionesWeb.tpFinal2023.Interface;
 
 import AplicacionesWeb.tpFinal2023.Model.Reserva;
+import AplicacionesWeb.tpFinal2023.Model.ReservaRequest;
 import org.springframework.data.domain.Page;
 
-import java.time.LocalDateTime;
+
+import java.sql.Date;
 import java.util.List;
 
 public interface IServicioReserva {
-    Reserva saveReserva(Reserva reserva);
+    Reserva saveReserva(ReservaRequest reserva);
 
     List<Reserva> getReservas();
 
@@ -17,6 +19,6 @@ public interface IServicioReserva {
 
     Long deleteReserva(Long id);
 
-    Page<Reserva> getReservasByFecha(LocalDateTime fechaInicio, LocalDateTime fechaFin, int page, int size);
+    Page<Reserva> getReservasByFecha(Date fechaInicio, Date fechaFin, int page, int size);
 }
 

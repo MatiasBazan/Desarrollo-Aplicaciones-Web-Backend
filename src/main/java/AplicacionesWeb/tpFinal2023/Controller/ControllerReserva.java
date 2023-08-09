@@ -2,11 +2,12 @@ package AplicacionesWeb.tpFinal2023.Controller;
 
 import AplicacionesWeb.tpFinal2023.Interface.IServicioReserva;
 import AplicacionesWeb.tpFinal2023.Model.Reserva;
+import AplicacionesWeb.tpFinal2023.Model.ReservaRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -18,7 +19,7 @@ public class ControllerReserva {
     private IServicioReserva reservaService;
 
     @PostMapping
-    public Reserva saveReserva(@RequestBody Reserva reserva) {
+    public Reserva saveReserva(@RequestBody ReservaRequest reserva) {
         return reservaService.saveReserva(reserva);
     }
 
@@ -43,10 +44,10 @@ public class ControllerReserva {
     }
 
     @GetMapping(params = {"fechaInicio", "fechaFin", "page", "size"})
-    public Page<Reserva> getReservasByFecha(@RequestParam("fechaInicio") LocalDateTime fechaInicio,
-                                            @RequestParam("fechaFin") LocalDateTime fechaFin,
+    public Page<Reserva> getReservasByFecha(@RequestParam("fechaInicio") Date fechaInicio,
+                                            @RequestParam("fechaFin") Date fechaFin,
                                             @RequestParam("page") int page,
                                             @RequestParam("size") int size) {
-        return reservaService.getReservasByFecha(fechaInicio, fechaFin, page, size);
+        return reservaService.getReservasByFecha((java.sql.Date) fechaInicio, (java.sql.Date) fechaFin, page, size);
     }
 }
