@@ -15,11 +15,7 @@ import java.time.LocalDateTime;
 public class ReservaRequest {
 
     private Long espacioFisico;
-    private String nombre;
-    private String apellido;
-    private String dni;
-    private String email;
-    private String telefono;
+    private Long solicitante;
     private String fechaInicio;
     private String fechaFin;
 }

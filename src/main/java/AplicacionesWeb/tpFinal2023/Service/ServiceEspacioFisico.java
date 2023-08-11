@@ -53,8 +53,23 @@ public class ServiceEspacioFisico implements IServicioEspacioFisico {
     }
 
     @Override
-    public Page<EspacioFisico> getFiltroNombreAndCapacidad (String nombre, Long capacidad, int page , int size) {
-        Pageable pageable = PageRequest.of(page, size);
-        return espacioFisicoRepository.findAllByNombreAndCapacidad(nombre,capacidad, pageable);
+    public List<EspacioFisico> getFiltroNombreAndCapacidad (String nombre, Long capacidad) {
+        return espacioFisicoRepository.findByNombreIgnoreCaseContainsAndCapacidad(nombre,capacidad);
     }
+
+    @Override
+    public List<EspacioFisico> getFiltroNombre (String nombre) {
+        return espacioFisicoRepository.findByNombreIgnoreCaseContains(nombre);
+    }
+
+    @Override
+    public List<EspacioFisico> getFiltroCapacidad (Long capacidad) {
+        return espacioFisicoRepository.findByCapacidad(capacidad);
+    }
+
+    @Override
+    public List<EspacioFisico> getEspacios () {
+        return espacioFisicoRepository.findAll();
+    }
+
 }

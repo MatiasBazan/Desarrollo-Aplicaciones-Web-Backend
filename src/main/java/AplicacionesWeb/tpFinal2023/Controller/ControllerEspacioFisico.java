@@ -43,16 +43,23 @@ public class ControllerEspacioFisico {
 
         return espacioFisicoService.deleteEspacioFisico(id);
     }
-    @GetMapping(params ={"nombre","capacidad","page","size"})
-    public Page<EspacioFisico> getFiltroNombreAndCapacidad(@RequestParam("nombre") String nombre,
-                                                           @RequestParam("capacidad") Long capacidad,
-                                                           @RequestParam("page") int page,
-                                                           @RequestParam("size") int size) {
+    @GetMapping(params ={"nombre","capacidad"})
+    public List<EspacioFisico> getFiltroNombreAndCapacidad(@RequestParam("nombre") String nombre,
+                                                           @RequestParam("capacidad") Long capacidad) {
 
-        return espacioFisicoService.getFiltroNombreAndCapacidad(nombre, capacidad, page, size);
+        return espacioFisicoService.getFiltroNombreAndCapacidad(nombre, capacidad);
+    }
+    @GetMapping(params ={"nombre"})
+    public List<EspacioFisico> getFiltroNombre(@RequestParam("nombre") String nombre) {
+
+        return espacioFisicoService.getFiltroNombre(nombre);
     }
 
+    @GetMapping(params ={"capacidad"})
+    public List<EspacioFisico> getFiltroCapacidad(@RequestParam("capacidad") Long capacidad) {
 
+        return espacioFisicoService.getFiltroCapacidad(capacidad);
+    }
 }
 
 

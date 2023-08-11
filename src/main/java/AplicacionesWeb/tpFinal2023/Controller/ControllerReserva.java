@@ -23,7 +23,11 @@ public class ControllerReserva {
         return reservaService.saveReserva(reserva);
     }
 
-    @GetMapping
+    @GetMapping(params ={"Solicitante"})
+    public List<Reserva> getReservas(@RequestParam(required = false) String Solicitante) {
+        return reservaService.getReservasBySolicitante(Solicitante);
+    }
+    @GetMapping()
     public List<Reserva> getReservas() {
         return reservaService.getReservas();
     }
@@ -34,7 +38,7 @@ public class ControllerReserva {
     }
 
     @PutMapping("/{id}")
-    public Reserva updateReserva(@PathVariable Long id, @RequestBody Reserva reserva) {
+    public Reserva updateReserva(@PathVariable Long id, @RequestBody ReservaRequest reserva) {
         return reservaService.updateReserva(id, reserva);
     }
 
@@ -43,11 +47,4 @@ public class ControllerReserva {
         return reservaService.deleteReserva(id);
     }
 
-    @GetMapping(params = {"fechaInicio", "fechaFin", "page", "size"})
-    public Page<Reserva> getReservasByFecha(@RequestParam("fechaInicio") Date fechaInicio,
-                                            @RequestParam("fechaFin") Date fechaFin,
-                                            @RequestParam("page") int page,
-                                            @RequestParam("size") int size) {
-        return reservaService.getReservasByFecha((java.sql.Date) fechaInicio, (java.sql.Date) fechaFin, page, size);
-    }
 }

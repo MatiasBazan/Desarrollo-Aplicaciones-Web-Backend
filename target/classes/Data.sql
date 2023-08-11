@@ -77,3 +77,5 @@ INSERT INTO espacio_fisico_recursos (espacio_fisico_id, recursos_id) VALUES ('22
 INSERT INTO espacio_fisico_recursos (espacio_fisico_id, recursos_id) VALUES ('23', '15');
 INSERT INTO espacio_fisico_recursos (espacio_fisico_id, recursos_id) VALUES ('24', '5');
 INSERT INTO espacio_fisico_recursos (espacio_fisico_id, recursos_id) VALUES ('25', '8');
+
+INSERT INTO solicitante (id,nombre,apellido,dni,email,telefono) VALUES (1,"Matias","Bazan",425226,"matias@gmail.com","52352532");

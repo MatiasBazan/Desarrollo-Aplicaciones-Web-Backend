@@ -10,7 +10,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Recursos {
+@Setter
+@Getter
+public class Recurso {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

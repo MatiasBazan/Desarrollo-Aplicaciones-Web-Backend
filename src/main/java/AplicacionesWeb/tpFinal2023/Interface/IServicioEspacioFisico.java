@@ -18,6 +18,12 @@ public interface IServicioEspacioFisico {
 
     Long deleteEspacioFisico(Long id);
 
-    Page<EspacioFisico> getFiltroNombreAndCapacidad(String nombre, Long capacidad, int page , int size);
+    List<EspacioFisico> getFiltroNombreAndCapacidad(String nombre, Long capacidad);
 
+    List<EspacioFisico> getFiltroNombre(String nombre);
+
+
+    List<EspacioFisico> getFiltroCapacidad(Long capacidad);
+
+    List<EspacioFisico> getEspacios();
 }
